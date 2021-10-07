@@ -8,7 +8,6 @@ setuptools.setup(
     version="0.1.3",
     author="Richard Mwewa",
     packages=["occli"],
-    author_email="r1chardmw3wa@gmail.com",
     description="An unofficial Open Corporates python CLI tool",
     long_description=long_description,
     long_description_content_type="text/markdown",
