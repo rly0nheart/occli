@@ -1,21 +1,23 @@
-from setuptools import setup
+import setuptools
 
-setup(
-    name='opencorps',
-    version='0.1.0',    
-    description='An unofficial Open Corporates CLI tool',
-    url='https://github.com/rlyonheart/opencorps:',
-    author='Richard Mwewa',
-    author_email='r1chardmw3wa@gmail.com',
-    license='GPL-3.0 License',
-    packages=['opencorps'],
-    install_requires=['requests>=2.26.0',
-    ],
+with open("README.md", "r", encoding="utf-8") as file:
+    long_description = file.read()
 
+setuptools.setup(
+    name="occli",
+    version="0.1.3",
+    author="Richard Mwewa",
+    packages=["occli"],
+    author_email="r1chardmw3wa@gmail.com",
+    description="An unofficial Open Corporates python CLI tool",
+    long_description=long_description,
+    long_description_content_type="text/markdown",
+    url="https://github.com/rlyonheart/occli",
     classifiers=[
-        'Intended Audience :: Cybersecurity/Research',
-        'License :: OSI Approved :: GPL-3.0 License',  
+        'Intended Audience :: Information Technology',
+        'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',  
         'Operating System :: POSIX :: Linux',
+        'Natural Language :: English',
         'Programming Language :: Python :: 3.9',
     ],
 )
