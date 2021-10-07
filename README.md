@@ -1,4 +1,4 @@
-**Unofficial Open Corporates CLI**
+# Unofficial Open Corporates CLI
 
 ![Screenshot_20211007-141255](https://user-images.githubusercontent.com/74001397/136382206-cb964438-6e51-4c49-9c7f-c7babd3634dc.jpg)
 
