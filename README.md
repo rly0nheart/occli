@@ -5,7 +5,7 @@
 
 ![Python Version](https://img.shields.io/badge/python-3.x-blue?style=flat&logo=python)
 ![OS](https://img.shields.io/badge/OS-GNU%2FLinux-red?style=flat&logo=linux)
-![GitHub](https://img.shields.io/github/license/rlyonheart/occli?ystyle=flat)
+![GitHub](https://img.shields.io/github/license/rlyonheart/occli?style=flat)
 ![CodeFactor](https://www.codefactor.io/repository/github/rlyonheart/occli/badge)
 ![Lines of code](https://img.shields.io/tokei/lines/github/rlyonheart/occli)
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/rlyonheart/occli) 
