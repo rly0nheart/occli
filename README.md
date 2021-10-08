@@ -11,7 +11,8 @@
 ![GitHub tag (latest by date)](https://img.shields.io/github/v/tag/rlyonheart/occli) 
 ![GitHub repo size](https://img.shields.io/github/repo-size/rlyonheart/occli)
 
-**OpenCorporates** *is a website that shares data on corporations under the copyleft Open Database License. This is an unofficial open corporates python command line tool.*
+**OpenCorporates** *is a website that shares data on corporations under the copyleft Open Database License. 
+This is an unofficial open corporates python command line tool.*
 
 # Installation
 **Clone the repo**:
@@ -21,11 +22,19 @@
 
 > <code>$ python occli</code>
 
+
+**Or Install from pypi**
+> <code>$ pip install occli</code>
+
+> <code>$ occli</code>
+
+
 # Optional Args
 | Flag           | Or            |MetaVar|                 Usage|
 | ------------- |:-------------:|:----------------------:|:---------:|
-| <code>-o</code>      | <code>--outfile</code>      |   **FILENAME** |  *Output filename*  |
-| <code>-r</code> | <code>--raw</code>  |    |  *return results in raw json format*  |
+| <code>-o</code>      | <code>--outfile</code>      |   **FILENAME** |  *output filename*  |
+| <code>-r</code> | <code>--raw</code>  |    |  *return results in raw json*  |
 | <code>-v</code> | <code>--verbosity</code>  |    |  *run program in verbose mode*  |
 
 
+by [Richard Mwewa](https://about.me/rlyonheart)
