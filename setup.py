@@ -5,10 +5,10 @@ with open("README.md", "r", encoding="utf-8") as file:
 
 setuptools.setup(
     name="occli",
-    version="0.1.3",
+    version="0.2.1",
     author="Richard Mwewa",
     packages=["occli"],
-    description="An unofficial Open Corporates python CLI tool",
+    description="Unofficial Open Corporates Client",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/rlyonheart/occli",
@@ -27,4 +27,9 @@ setuptools.setup(
         'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
     ],
+    entry_points={
+        "console_scripts": [
+            "occli=occli.__main__:occli",
+            ]
+    }
 )
