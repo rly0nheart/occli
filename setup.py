@@ -5,7 +5,7 @@ with open("README.md", "r", encoding="utf-8") as file:
 
 setuptools.setup(
     name="occli",
-    version="0.2.1",
+    version="0.2.2",
     author="Richard Mwewa",
     packages=["occli"],
     description="Unofficial Open Corporates Client",
