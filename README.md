@@ -1,10 +1,9 @@
 # CHANGELOG
 **Improvements**:
-* added flag <code>--versions</code> for viewing latest API information
-* added flag <code>-c/--company</code> to be used for specifying a company name
-* removed un-necessary code
+	
+* fixed corporation not found error
 
-# Unofficial Open Corporates Client
+# Unofficial Open Corporates CLI
 
 ![occli](https://user-images.githubusercontent.com/74001397/137996387-d7f23e1b-395e-499e-8d4d-250d25cca115.jpg)
 ![Python Version](https://img.shields.io/badge/python-3.x-blue?style=flat&logo=python)
@@ -17,31 +16,49 @@
 ![GitHub repo size](https://img.shields.io/github/repo-size/rlyonheart/occli?style=flat&logo=github)
 
 [Open Corporates](https://opencorporates.com) *is a website that shares data on corporations under the copyleft Open Database License. 
-This is an unofficial open corporates client.*
+This is an unofficial open corporates command line client.*
 
-# Installation & Usage
-**Clone from Github**:
+# Installation
+**Clone From Github**:
 ```
 $ git clone https://github.com/rlyonheart/occli.git
 
 $ cd occli
-
-$ python occli -c **companyname**
 ```
 
-
-**Install from PyPI**:
+**Install From PyPI**:
 ```
 $ pip install occli
+```
 
-$ occli -c **companyname**
+
+# Usage
+**Github Clone**:
+```
+$ python occli -c COMPANYNAME
+```
+
+**Viewing API version information**:
+```
+$ python occli --versions
+```
+
+
+**PyPI Package**:
+```
+$ occli -c COMPANYNAME
+```
+
+**Viewing version information**
+```
+$ occli --versions
 ```
 
 # Optional Arguments
 | Flag         | MetaVar | Usage|
 | ------------- |:----------------------:|:---------:|
-| <code>-c/--company</code> | **COMPANYNAME**  |    |  *name of company*  |
-| <code>--versions</code>  |    |  *get latest Open Corporates API information*  |
+| <code>-c/--company</code> | **COMPANYNAME** |  *name of company*  |
+| <code>--versions</code>  |    |  *get latest Open Corporates API version information*  |
 | <code>-o/--output</code>      |   **FILENAME** |  *output filename*  |
 | <code>-r/--raw</code>  |    |  *return results in raw json format*  |
 | <code>-v/--verbosity</code>  |    |  *run program in verbose mode*  |
