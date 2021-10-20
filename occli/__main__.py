@@ -7,18 +7,18 @@ import argparse
 import requests
 from pprint import pprint
 from datetime import datetime
-from lib.colors import red,green,white,reset
+from lib.colors import red,white,green,reset
 
 
 def occli():
 	start = datetime.now()
 	api = f"https://api.opencorporates.com/v0.4.8/"
-	parser = argparse.ArgumentParser(description=f"{green}Unofficial Open Corporates client:  {white}OpenCorporates is a website that shares data on corporations under the copyleft Open Database License. This is an unofficial open corporates command line client developed by {white}Richard Mwewa | {red}https://github.com/{white}rlyonheart{reset}")
+	parser = argparse.ArgumentParser(description=f"{white}Unofficial Open Corporates Command Line Client:  {green}Open Corporates{white} is a website that shares data on corporations under the copyleft Open Database License. This is an unofficial open corporates command line client developed by {white}Richard Mwewa | {green}https://github.com/{white}rlyonheart{reset}")
 	parser.add_argument("-c", "--company",help=f"{white}company name{reset}", dest="companyname", metavar=f"{white}COMPANYNAME{reset}")
-	parser.add_argument("--versions",help=f"{white}show API version information{reset}", dest="versions", action="store_true")
-	parser.add_argument("-o","--output",help=f"{white}write output to a  {green}file{reset}",dest="output", metavar="FILENAME")
-	parser.add_argument("-r","--raw",help=f"{white}return results in {green}raw{white} json{reset}",dest="raw", action="store_true")
-	parser.add_argument("-v","--verbose",help=f"{white}verbosity{reset}",dest="verbose", action="store_true")
+	parser.add_argument("--versions",help=f"{white}get latest Open Corporates API version information({green}can also be run in verbose mode{white}){reset}", dest="versions", action="store_true")
+	parser.add_argument("-o","--output",help=f"{white}write output to a  {green}file{reset}",dest="output", metavar=f"{white}FILENAME{reset}")
+	parser.add_argument("-r","--raw",help=f"{white}return results in raw {green}json{white} format{reset}",dest="raw", action="store_true")
+	parser.add_argument("-v","--verbose",help=f"{white}run occli in {green}verbose{white} mode{reset}",dest="verbose", action="store_true")
 	args = parser.parse_args()
 	if args.verbose:
 	    logging.basicConfig(format=f"{white}%(message)s{reset}",level=logging.DEBUG)
@@ -29,25 +29,7 @@ def occli():
 	elif args.versions:
 		versions(args,api)
 	else:
-		print(f"""{white}usage: occli [{green}-h{white}] [{green}-c {white}COMPANYNAME] [{green}--versions{white}] [{green}-o {white}FILENAME] [{green}-r{white}] [{green}-v{white}]
-
-optional arguments:
-  {green}-h{white}, {green}--help{white}            show this help message and {red}exit{green}
-  
-  -c {white}COMPANYNAME, {green}--company{white} COMPANYNAME
-                        company name
-                        
-  {green}--versions{white}            show API version
-                        information
-                        
-  {green}-o {white}FILENAME, {green}--outfile {white}FILENAME
-                        write output to a
-                        file
-                        
-  {green}-r{white}, {green}--raw{white}             return results in
-                        raw json
-                        
-  {green}-v{white}, {green}--verbose{white}         run occli in verbose mode{reset}""")
+		print(f"{white}occli: try {green}occli --help{white} to view help message{reset}")
 
 
 def companies(args,api,start):
@@ -102,7 +84,7 @@ def companies(args,api,start):
 				
 		except IndexError:
 			if args.verbose:
-				exit(f"{white}[{red}!{white}] Company: ({red}{args.corporation}{white}) {red}Not Found{white}.{reset}\n")
+				exit(f"{white}[{red}!{white}] Company: {args.companyname} {red}Not Found{white}.{reset}\n")
 			break
 			
 		except KeyboardInterrupt:
@@ -114,8 +96,7 @@ def companies(args,api,start):
 			if args.verbose:
 				print(f"\n{white}[{red}!{white}] Error ({red}{args.companyname}{white}): {red}{e}{reset}")
 				print(f"{white}[{green}*{white}] Retrying::attempt({retries})...{reset}")
-
-	
+				
 			
 # Save results
 # If the raw flag is included, results will not only be returned in json format but will also be written in json
