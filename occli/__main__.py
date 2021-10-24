@@ -11,10 +11,12 @@ from lib.colors import red,white,green,reset
 
 
 def occli():
-	start = datetime.now()
+	global args
 	api = f"https://api.opencorporates.com/v0.4.8/"
 	parser = argparse.ArgumentParser(description=f"{white}Unofficial Open Corporates Command Line Client:  {green}Open Corporates{white} is a website that shares data on corporations under the copyleft Open Database License. This is an unofficial open corporates command line client developed by {white}Richard Mwewa | {green}https://github.com/{white}rlyonheart{reset}")
 	parser.add_argument("-c", "--company",help=f"{white}company name{reset}", dest="companyname", metavar=f"{white}COMPANYNAME{reset}")
+	parser.add_argument("-n", "--company-number", help=f"{white}company number{reset}", dest="companynumber", metavar=f"{white}COMPANYNUMBER{reset}")
+	parser.add_argument("-j", "--jurisdiction-code", help=f"{white}jurisdiction {green}code{reset}", dest="jurisdiction", metavar=f"{white}JURISDICTIONCODE{reset}")
 	parser.add_argument("--versions",help=f"{white}get latest Open Corporates API version information({green}can also be run in verbose mode{white}){reset}", dest="versions", action="store_true")
 	parser.add_argument("-o","--output",help=f"{white}write output to a  {green}file{reset}",dest="output", metavar=f"{white}FILENAME{reset}")
 	parser.add_argument("-r","--raw",help=f"{white}return results in raw {green}json{white} format{reset}",dest="raw", action="store_true")
@@ -25,25 +27,22 @@ def occli():
 
 	
 	if args.companyname:
-		companies(args,api,start)
+		companies(args,api)
+	elif args.companynumber:
+		company_number(args,api)
 	elif args.versions:
 		versions(args,api)
 	else:
-		print(f"{white}occli: try {green}occli --help{white} to view help message{reset}")
+		exit(f"{white}occli: try {green}occli --h{white} or {green}occli --help{white} to view help message{reset}")
 
 
-def companies(args,api,start):
+def companies(args,api):
 	api = api+f"companies/search?q={args.companyname}*"	    
 	interval = 0
-	retries = 0
-	# Main loop
-	while True:
-		retries += 1
-		try:
-			response = requests.get(api).json()
-			for number in range(interval, int(response['results']['per_page'])+1):
-				interval += 1
-				results = (f"""
+	response = requests.get(api).json()
+	for number in range(interval, int(response['results']['per_page'])+1):
+		interval += 1
+		results = (f"""
 
 {white}{response['results']['companies'][number]['company']['name']}
 ├ Company Number: {green}{response['results']['companies'][number]['company']['company_number']}{white}
@@ -67,37 +66,31 @@ def companies(args,api,start):
 ├ Native Company Number: {green}{response['results']['companies'][number]['company']['native_company_number']}{white}
 └╼ Open Corporates URL: {red}{response['results']['companies'][number]['company']['opencorporates_url']}{reset}
 """)
-				if args.raw:
-				    raw(args,results,response)
-				    break
-				  
-				else:
-				    print(results)
-				    if args.output:
-				    	output(args,results,response)
+		if args.raw:
+		    raw(args,results,response)
+		    exit()
+		else:
+			print(results)
+			if args.output:
+			    output(args,results,response)
 				    	
-				if number == int(response['results']['per_page'])-1:
-					break
-			
-			if args.verbose:
-				exit(f"{white}[{green}•{white}] Occli stopped in {red}{datetime.now()-start}{white} seconds.{reset}\n")
-				
-		except IndexError:
-			if args.verbose:
-				exit(f"{white}[{red}!{white}] Company: {args.companyname} {red}Not Found{white}.{reset}\n")
-			break
-			
-		except KeyboardInterrupt:
-			if args.verbose:
-				exit(f"\n{white}[{red}x{white}] Occli interrupted ({red}Ctrl{white}+{red}C{white}).{reset}\n")
-			exit()
-			
-		except Exception as e:
-			if args.verbose:
-				print(f"\n{white}[{red}!{white}] Error ({red}{args.companyname}{white}): {red}{e}{reset}")
-				print(f"{white}[{green}*{white}] Retrying::attempt({retries})...{reset}")
-				
-			
+		if number == int(response['results']['per_page'])-1:
+				break
+		
+
+def company_number(args,api):
+	api = api+f"companies/{args.jurisdiction}/{args.companynumber}"
+	while True:
+		if not args.jurisdiction:
+			exit(f"{white}missing:  {green}-j{white}/{green}--jurisdiction-code{reset}")
+		response = requests.get(api).json()
+		pprint(response)
+		if args.output:
+			object = json.dumps(response, indent=4)
+			with open(args.output, "a") as file:
+				file.write(object)
+				file.close()
+		break
 # Save results
 # If the raw flag is included, results will not only be returned in json format but will also be written in json
 def output(args,results,response):
@@ -140,4 +133,25 @@ Open Corporates API Version Information
         
  		
 if __name__ == "__main__":
-	occli()
+	start = datetime.now()
+	while True:
+		try:
+			occli()
+			if args.verbose:
+				exit(f"\n{white}[{green}•{white}] Occli stopped in {red}{datetime.now()-start}{white} seconds.{reset}\n")
+			break
+			
+		except IndexError:
+		    if args.verbose:
+		    	exit(f"{white}[{red}!{white}] Company: {args.companyname} {red}Not Found{white}.{reset}\n")
+		    break
+		  
+		except KeyboardInterrupt:
+		    if args.verbose:
+		    	exit(f"\n{white}[{red}x{white}] Occli interrupted ({red}Ctrl{white}+{red}C{white}).{reset}\n")
+		    break
+		    
+		except Exception as e:
+		    if args.verbose:
+		    	print(f"\n{white}[{red}!{white}] Error: {red}{e}{reset}")
+		    	print(f"{white}[{green}*{white}] Retrying...{reset}")
