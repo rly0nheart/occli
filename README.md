@@ -1,7 +1,9 @@
 # CHANGELOG
 **Improvements**:
-	
-* fixed corporation not found error
+* can now get information on an individual company, including company officer's information	
+* added flag  <code>-n/--company-number</code> ;used for specifying which company to get information on
+* added flag  <code>-j/--jurisdiction-code</code> ;used for specifying which jurisdiction code to check (recommended: should be used with <code>-n/--company-number</code>)
+* bug fixes
 
 # Unofficial Open Corporates CLI
 
@@ -31,11 +33,16 @@ $ cd occli
 $ pip install occli
 ```
 
+**Upgrade to latest version**:
+```
+$ python -m pip install --upgrade occli
+```
+
 
 # Usage
 **Github Clone**:
 ```
-$ python occli -c COMPANYNAME
+$ python occli -c COMPANY-NAME
 ```
 
 **Viewing API version information**:
@@ -43,10 +50,15 @@ $ python occli -c COMPANYNAME
 $ python occli --versions
 ```
 
+**Getting information on an individual company**:
+```
+$ python occli -n COMPANY-NUMBER -j JURISDICTION-CODE
+```
+
 
 **PyPI Package**:
 ```
-$ occli -c COMPANYNAME
+$ occli -c COMPANY-NAME
 ```
 
 **Viewing version information**
@@ -54,10 +66,17 @@ $ occli -c COMPANYNAME
 $ occli --versions
 ```
 
+**Getting information on an individual company**:
+```
+$ occli -n COMPANY-NUMBER -j JURISDICTION-CODE
+```
+
 # Optional Arguments
 | Flag         | MetaVar | Usage|
 | ------------- |:----------------------:|:---------:|
 | <code>-c/--company</code> | **COMPANYNAME** |  *name of company*  |
+| <code>-j/--jurisdiction-code</code> | **JURISDICTION-CODE** |  *company jurisdiction code*  |
+| <code>-n/--company-number</code> | **COMPANYNUMBER** |  *company number*  |
 | <code>--versions</code>  |    |  *get latest Open Corporates API version information*  |
 | <code>-o/--output</code>      |   **FILENAME** |  *output filename*  |
 | <code>-r/--raw</code>  |    |  *return results in raw json format*  |
