@@ -1,10 +1,3 @@
-# CHANGELOG
-**Improvements**:
-* can now get information on an individual company, including company officer's information	
-* added flag  <code>-n/--company-number</code> ;used for specifying which company to get information on
-* added flag  <code>-j/--jurisdiction-code</code> ;used for specifying which jurisdiction code to check (recommended: should be used with <code>-n/--company-number</code>)
-* bug fixes
-
 # Unofficial Open Corporates CLI
 
 ![occli](https://user-images.githubusercontent.com/74001397/137996387-d7f23e1b-395e-499e-8d4d-250d25cca115.jpg)
@@ -23,52 +16,71 @@ This is an unofficial open corporates command line client.*
 # Installation
 **Clone From Github**:
 ```
-$ git clone https://github.com/rlyonheart/occli.git
+git clone https://github.com/rlyonheart/occli.git
 
-$ cd occli
+cd occli
 ```
+
+```
+pip install -r requirements.txt
+```
+
 
 **Install From PyPI**:
 ```
-$ pip install occli
+pip install occli
 ```
 
 **Upgrade to latest version**:
 ```
-$ python -m pip install --upgrade occli
+python -m pip install --upgrade occli
 ```
 
 
 # Usage
 **Github Clone**:
 ```
-$ python occli -c COMPANY-NAME
+python occli -c COMPANYNAME
 ```
 
 **Viewing API version information**:
 ```
-$ python occli --versions
+python occli --versions
 ```
+
+**Alternatively**:
+```
+chmod +x occli
+```
+
+```
+occli -c COMPANYNAME
+```
+
+```
+occli --versions
+```
+
 
 **Getting information on an individual company**:
 ```
-$ python occli -n COMPANY-NUMBER -j JURISDICTION-CODE
+occli -n COMPANYNUMBER -j JURISDICTIONCODE
 ```
 
 
 **PyPI Package**:
 ```
-$ occli -c COMPANY-NAME
+occli -c COMPANYNAME
 ```
 
 **Viewing version information**
 ```
-$ occli --versions
+occli --versions
 ```
 
 **Getting information on an individual company**:
 ```
-$ occli -n COMPANY-NUMBER -j JURISDICTION-CODE
+occli -n COMPANYNUMBER -j JURISDICTIONCODE
 ```
 
 # Optional Arguments
