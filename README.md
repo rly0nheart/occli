@@ -54,17 +54,17 @@ chmod +x occli
 ```
 
 ```
-occli -c COMPANYNAME
+./occli -c COMPANYNAME
 ```
 
 ```
-occli --versions
+./occli --versions
 ```
 
 
 **Getting information on an individual company**:
 ```
-occli -n COMPANYNUMBER -j JURISDICTIONCODE
+./occli -n COMPANYNUMBER -j JURISDICTIONCODE
 ```
 
 
