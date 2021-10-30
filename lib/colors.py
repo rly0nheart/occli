@@ -1,3 +1,5 @@
+import sys
+
 # Colors will not be diplayed on windows or macOS machines
 colors = True
 platf = sys.platform
