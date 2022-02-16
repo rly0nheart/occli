@@ -8,20 +8,21 @@ from lib.colors import red,white,green,reset
 
 class occli:
 	def __init__(self,args):
-		self.api = f"https://api.opencorporates.com/v0.4.8/companies/search?q={args.search}*"		
-			
-	def on_connection(self):
-	    if args.search:
-	    	self.search()
-	    else:
-	    	exit(f"{white}occli: try {green}occli --h{white} or {green}occli --help{white} to view help message{reset}")
+		self.api = f"https://api.opencorporates.com/v0.4.8/companies/search?q={args.query}*"
+		if args.query:
+		    self.search()
+		elif args.licence:
+			exit(self.licence())
+		else:
+		    exit(f"{white}occli: use {green}-h{white} or {green}--help{white} to show help message.{reset}")
+		
 	    	
 	# searching compan(y)(ies) on OpenCorporates    	
-	def search(self):	    
+	def search(self):
 		interval = 0
 		response = requests.get(self.api).json()
 		if response['results']['companies'] == []:
-			print(f"{white}[{red}^{white}] No results found for {args.search}. Try a different search or try again later.{reset}")
+			logging.info(f"{white}No results found for {args.query}. Try a different search or try again later.{reset}")
 		else:
 			for number in range(interval, int(response['results']['per_page'])+1):
 				interval += 1
@@ -49,32 +50,41 @@ class occli:
 				for key, value in data.items():
 					print(f"{white} ├─ {key}: {green}{value}{reset}")
 					
-				if args.output:
+				if args.dump:
 				   print(self.write(data,number,response))
 				   
 				if number == int(response['results']['per_page'])-1:
-					break
-				
+					break			
 			
 			
 	# Writing results to a file
 	def write(self,data,number,response):
-	    with open(args.output, "a") as file:
+	    with open(args.dump, 'a') as file:
 	        file.write(f"\n\n{response['results']['companies'][number]['company']['name']}\n")
 	        for key, value in data.items():
 	        	file.write(f" ├─ {key}: {value}\n")
 	        file.close()
 	        
 	    if args.verbose:
-	    	return f"\n{white}[{green}+{white}] Output written to ./{green}{args.output}{reset}"
+	    	logging.info(f'{white}Output written to {green}{args.dump}{reset}')
+	    	
+	    	
+	def licence(self):
+	    with open('LICENSE','r') as file:
+	    	content = file.read()
+	    	file.close()
+	    return content
 	    	
 
-parser = argparse.ArgumentParser(description=f"{white}Unofficial Command Line Interface for OpenCorporates{reset}",epilog=f"{white}OpenCorporates.com is a website that shares data on corporations under the copyleft Open Database License. Developed by {green}Richard Mwewa{white} | https://about.me/{green}rly0nheart{reset}")
-parser.add_argument("search",help=f"{white}company name{reset}")
-parser.add_argument("-o","--output",help=f"{white}write output to a file{reset}",metavar=f"{white}path/to/file{reset}")
-parser.add_argument("-v","--verbose",help=f"{white}run occli in verbose mode (recommended){reset}",dest="verbose", action="store_true")
-parser.add_argument("--version",version=f"{white}v0.3.2 Released at 12:40AM CAT 2022-01-22 {reset}",action="version")
+# Parsing command line arguments
+parser = argparse.ArgumentParser(description=f"{white}OpenCorporates Command Line Interface [{red}Unofficial{white}]{reset}",epilog=f"{green}OpenCorporates.com{white} is a website that shares data on corporations under the copyleft Open Database License. Developed by {green}Richard Mwewa{white} | https://about.me/{green}rly0nheart{reset}")
+parser.add_argument('-q','--query',metavar=f'{white}company-name{reset}')
+parser.add_argument("-d","--dump",help=f"{white}dump output to a specified file{reset}",metavar=f"{white}path/to/file{reset}")
+parser.add_argument("-v","--verbose",help=f"{white}run occli in verbose mode{reset}",action="store_true")
+parser.add_argument("--version",version=f"{white}v0.3.4 Released on 16th February 2022 {reset}",action="version")
+parser.add_argument('--licence','--license',help=f'show program\'s licen(cs)e and exit',action='store_true')
 args = parser.parse_args()
+
 start_time = datetime.now()
 if args.verbose:
-	logging.basicConfig(format=f"{white}[{green}~{white}] %(message)s{reset}",level=logging.DEBUG)
+	logging.basicConfig(format=f'{white}* %(message)s{reset}',level=logging.DEBUG)
