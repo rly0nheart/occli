@@ -3,7 +3,6 @@
 ![OS](https://img.shields.io/badge/OS-GNU%2FLinux-red?style=flat&logo=linux)
 ![GitHub](https://img.shields.io/github/license/rly0nheart/occli?style=flat&logo=github)
 ![CodeFactor](https://www.codefactor.io/repository/github/rly0nheart/occli/badge)
-![Lines of code](https://img.shields.io/tokei/lines/github/rly0nheart/occli?style=flat&logo=github)
 ![PyPI](https://img.shields.io/pypi/v/occli?style=flat&logo=pypi)
 [![Downloads](https://static.pepy.tech/personalized-badge/occli?period=total&units=none&left_color=grey&right_color=yellowgreen&left_text=pypi%20downloads)](https://pepy.tech/project/occli)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rly0nheart/occli?style=flat&logo=github)
@@ -17,7 +16,7 @@ $ pip install occli
 ```
 
 ```
-$ occli [company-name]
+$ occli -q [company-name]
 ```
 
 **Upgrade to latest version**:
@@ -40,15 +39,17 @@ $ pip install -r requirements.txt
 ```
 
 ```
-$ python occli [company-name]
+$ python occli -q [company-name]
 ```
 
 # Optional Arguments
 | Flag         | MetaVar | Usage|
 | ------------- |:----------------------:|:---------:|
-| <code>-o/--output</code>      |   *path/to/file* |  write output to a file  |
+| <code>-q/--query</code>  |  company-name  | company-name  |
+| <code>-d/--dump</code>      |   *path/to/file* |  dump output to a specified file  |
 | <code>-v/--verbose</code>  |    |  run occli in verbose mode (recommended) |
 | <code>--version</code>  |    |  view program's version number and exit' |
+| <code>--licence/--license</code>  |    |  show program's licen(cs)e and exit' |
 
 # LICENSE
 ![license](https://user-images.githubusercontent.com/74001397/137917929-2f2cdb0c-4d1d-4e4b-9f0d-e01589e027b5.png)
