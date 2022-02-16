@@ -1,17 +1,22 @@
 #!/usr/bin/env python3
 
+import logging
 from src.main import *
+from lib.banner import banner
 from lib.colors import red,white,green,reset
 
-if __name__ == "__main__":
+print(banner)
+if __name__ == '__main__':
 	while True:
 		try:
-			occli(args).on_connection()
+			occli(args)
 			break
 			
 		except KeyboardInterrupt:
 		    if args.verbose:
-		    	print(f"\n{white}[{red}x{white}] Process interrupted with {red}Ctrl{white}+{red}C{reset}")
+		    	print('\n')
+		    	logging.critical(f'{white}Process interrupted with {red}Ctrl{white}+{red}C{reset}')
+		    	break
 		    break
 				
 		except IndexError:
@@ -19,7 +24,7 @@ if __name__ == "__main__":
 		    
 		except Exception as e:
 		    if args.verbose:
-		    	print(f"{white}[{red}!{white}] An error occured: {red}{e}{reset}")
+		    	logging.warning(f'{white}An error occured: {red}{e}{reset}')
 		    
 	if args.verbose:
-		exit(f"{white}[{green}-{white}] Finished in {green}{datetime.now()-start_time}{white} seconds.{reset}")
+		logging.info(f'{white}Finished in {green}{datetime.now()-start_time}{white} seconds.{reset}')
