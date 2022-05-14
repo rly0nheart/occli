@@ -90,7 +90,7 @@ class Occli:
 	    	    if prompt == "y":
 	    	        files_to_update = ['src/main.py','lib/misc.py','occli','.github/dependabot.yml','.github/ISSUE_TEMPLATE/bug_report.md','.github/ISSUE_TEMPLATE/feature_request.md','.github/ISSUE_TEMPLATE/config.yml','LICENSE','README.md','requirements.txt']
 	    	        for file in tqdm(files_to_update,desc='[ * ] Updating'):
-	    	            data = requests.get(f'https://raw.githubusercontent.com/rly0nheart/octosuite/master/{file}')
+	    	            data = requests.get(f'https://raw.githubusercontent.com/rly0nheart/occli/master/{file}')
 	    	            with open(file, 'wb') as code:
 	    	                code.write(data.content)
 	    	                code.close()
