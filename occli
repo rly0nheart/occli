@@ -1,30 +1,20 @@
 #!/usr/bin/env python3
 
-import logging
 from src.main import *
-from lib.banner import banner
-from lib.colors import red,white,green,reset
+from lib.misc import Banner
 
-print(banner)
+print(Banner.name_logo)
 if __name__ == '__main__':
-	while True:
-		try:
-			occli(args)
-			break
+	try:
+		Occli(args)
 			
-		except KeyboardInterrupt:
-		    if args.verbose:
-		    	print('\n')
-		    	logging.critical(f'{white}Process interrupted with {red}Ctrl{white}+{red}C{reset}')
-		    	break
-		    break
+	except KeyboardInterrupt:
+	    print(f'{Attributes.warning} Process interrupted with (Ctrl+C).')
 				
-		except IndexError:
-		    break
+	except IndexError:
+	    pass
 		    
-		except Exception as e:
-		    if args.verbose:
-		    	logging.warning(f'{white}An error occured: {red}{e}{reset}')
+	except Exception as e:
+	    print(f'{Attributes.error} An error occured: {e}')
 		    
-	if args.verbose:
-		logging.info(f'{white}Finished in {green}{datetime.now()-start_time}{white} seconds.{reset}')
+print(f'{Attributes.info} Finished in {datetime.now()-start_time} seconds.')
