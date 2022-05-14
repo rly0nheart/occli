@@ -7,7 +7,7 @@
 [![Downloads](https://static.pepy.tech/personalized-badge/occli?period=total&units=none&left_color=grey&right_color=yellowgreen&left_text=pypi%20downloads)](https://pepy.tech/project/occli)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rly0nheart/occli?style=flat&logo=github)
 
-> [OpenCorporates](https://opencorporates.com) is a website that shares data on corporations under the copyleft Open Database License.
+Occli is an open-source command line interface for the [Open Corporates](https://opencorporates.com) Database that searches and gets data on corporations under the copyleft Open Database License.
 
 # Installation & Usage
 **Install From PyPI**:
@@ -46,13 +46,13 @@ $ python occli -q [company-name]
 | Flag         | MetaVar | Usage|
 | ------------- |:----------------------:|:---------:|
 | <code>-q/--query</code>  |  company-name  | company-name  |
-| <code>-d/--dump</code>      |   *path/to/file* |  dump output to a specified file  |
-| <code>-v/--verbose</code>  |    |  run occli in verbose mode (recommended) |
+| <code>-o/--output</code>      |   *path/to/file* |  write output to a specified file  |
+| <code>-d/--debug</code>  |    |  show network debug information |
 | <code>--version</code>  |    |  view program's version number and exit' |
-| <code>--licence/--license</code>  |    |  show program's licen(cs)e and exit' |
+| <code>-u/--update</code>  |    |  check for updates' |
 
 # LICENSE
 ![license](https://user-images.githubusercontent.com/74001397/137917929-2f2cdb0c-4d1d-4e4b-9f0d-e01589e027b5.png)
 
-# About author
+# About developer
 * [About.me](https://about.me/rly0nheart)
