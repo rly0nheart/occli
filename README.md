@@ -1,6 +1,6 @@
 ![occli](https://user-images.githubusercontent.com/74001397/137996387-d7f23e1b-395e-499e-8d4d-250d25cca115.jpg)
+
 ![Python Version](https://img.shields.io/badge/python-3.x-blue?style=flat&logo=python)
-![OS](https://img.shields.io/badge/OS-GNU%2FLinux-red?style=flat&logo=linux)
 ![GitHub](https://img.shields.io/github/license/rly0nheart/occli?style=flat)
 ![CodeFactor](https://www.codefactor.io/repository/github/rly0nheart/occli/badge)
 ![PyPI](https://img.shields.io/pypi/v/occli?style=flat&logo=pypi)
