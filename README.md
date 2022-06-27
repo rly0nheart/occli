@@ -36,6 +36,10 @@ pip install occli
 ```
 occli 'query'
 ```
+## Updating
+```
+pip install --upgrade occli
+```
 
 # Optional Arguments
 | Option         | Argument | Usage|
@@ -43,11 +47,6 @@ occli 'query'
 | ``-o/--output``      |   path/to/file |  write output to a specified file  |
 | ``-c/--count``  |    |  number of results to return (1-30) (default: 30) |
 | ``-v/--verbose``  |    |  enable verbosity |
-
-## Upgrade to latest version
-```
-pip install --upgrade occli
-```
 
 # Note
 > Occli is in no way affiliated with Open Corporates. This project only uses their public API, therefore, user privacy policies and terms of service will be applied as provided by [Open Corporates](https://opencorporates.com/legal/user_privacy_policy) itself.
