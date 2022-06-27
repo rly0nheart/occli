@@ -1,4 +1,4 @@
-![occli](https://user-images.githubusercontent.com/74001397/137996387-d7f23e1b-395e-499e-8d4d-250d25cca115.jpg)
+![logo](https://user-images.githubusercontent.com/74001397/176042400-fe48a5ca-d6fd-4aa6-b6ea-0b9fabee9262.png)
 
 ![Python Version](https://img.shields.io/badge/python-3.x-blue?style=flat&logo=python)
 ![GitHub](https://img.shields.io/github/license/rly0nheart/occli?style=flat)
