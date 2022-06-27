@@ -12,24 +12,29 @@ Occli is an open-source command line interface for [Open Corporates](https://ope
 # Installation
 ## Clone from Github
 ```
-$ git clone https://github.com/rly0nheart/occli.git
+git clone https://github.com/rly0nheart/occli.git
 ```
 
 ```
-$ cd occli
+cd occli
 ```
 
 ```
-$ python setup.py sdist bdist_wheel
+python setup.py sdist bdist_wheel
 ```
 
 ```
-$ pip install dist/occli-[version.tag]-py3-none.whl
+pip install dist/occli-[version.tag]-py3-none.whl
 ```
 
 ## Install from PyPI
 ```
-$ pip install occli
+pip install occli
+```
+
+# Usage
+```
+occli 'query'
 ```
 
 # Optional Arguments
@@ -41,7 +46,7 @@ $ pip install occli
 
 ## Upgrade to latest version
 ```
-$ pip install --upgrade occli
+pip install --upgrade occli
 ```
 
 # Note
