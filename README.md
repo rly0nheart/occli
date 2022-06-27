@@ -4,7 +4,7 @@
 ![GitHub](https://img.shields.io/github/license/rly0nheart/occli?style=flat)
 ![CodeFactor](https://www.codefactor.io/repository/github/rly0nheart/occli/badge)
 ![PyPI](https://img.shields.io/pypi/v/occli?style=flat&logo=pypi)
-[![Downloads](https://static.pepy.tech/personalized-badge/occli?period=total&units=none&left_color=grey&right_color=yellowgreen&left_text=pypi%20downloads)](https://pepy.tech/project/occli)
+[![Downloads](https://static.pepy.tech/personalized-badge/occli?period=total&units=none&left_color=grey&right_color=yellowgreen&left_text=downloads)](https://pepy.tech/project/occli)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rly0nheart/occli?style=flat&logo=github)
 
 Occli is a lite command line interface for [Open Corporates](https://opencorporates.com), that queries and gets data on companies under the copyleft Open Database License.
