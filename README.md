@@ -44,5 +44,8 @@ $ pip install occli
 $ pip install --upgrade occli
 ```
 
+# Note
+> Occli is in no way affiliated with Open Corporates. This project only uses their public API, therefore, user privacy policies and terms of service will be applied as provided by [Open Corporates](https://opencorporates.com/legal/user_privacy_policy) itself.
+
 # LICENSE
 ![license](https://user-images.githubusercontent.com/74001397/137917929-2f2cdb0c-4d1d-4e4b-9f0d-e01589e027b5.png)
