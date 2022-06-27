@@ -9,7 +9,7 @@ setuptools.setup(
     author="Richard Mwewa",
     author_email="richardmwewa@duck.com",
     packages=["occli"],
-    description="A lite CLI for Open Corporates",
+    description="Open Corporates CLI",
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/rly0nheart/occli",
