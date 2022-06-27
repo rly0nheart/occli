@@ -9,7 +9,7 @@ from occli.banner import versionTag, nameLogo
 global args
 global start_time
 # Parsing command line arguments
-parser = argparse.ArgumentParser(description="Occli — by Richard Mwewa | https://about.me/rly0nheart",epilog="Occli is a lite command line interface for Open Corporates, that searches and gets data on companies under the copyleft Open Database License.")
+parser = argparse.ArgumentParser(description="Occli — by Richard Mwewa | https://about.me/rly0nheart",epilog="Occli is a lite command line interface for Open Corporates, that queries and gets data on companies under the copyleft Open Database License.")
 parser.add_argument("query", metavar="query")
 parser.add_argument("-c","--count", help="number of results to return (1-30) (default: %(default)s)", default=30, type=int)
 parser.add_argument("-o","--output", help=argparse.SUPPRESS)
