@@ -7,7 +7,7 @@
 [![Downloads](https://static.pepy.tech/personalized-badge/occli?period=total&units=none&left_color=grey&right_color=yellowgreen&left_text=pypi%20downloads)](https://pepy.tech/project/occli)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rly0nheart/occli?style=flat&logo=github)
 
-Occli is a lite command line interface for [Open Corporates](https://opencorporates.com), that searches and gets data on companies under the copyleft Open Database License.
+Occli is a lite command line interface for [Open Corporates](https://opencorporates.com), that queries and gets data on companies under the copyleft Open Database License.
 
 # Installation
 ## Clone from Github
