@@ -7,25 +7,10 @@
 [![Downloads](https://static.pepy.tech/personalized-badge/occli?period=total&units=none&left_color=grey&right_color=yellowgreen&left_text=pypi%20downloads)](https://pepy.tech/project/occli)
 ![GitHub repo size](https://img.shields.io/github/repo-size/rly0nheart/occli?style=flat&logo=github)
 
-Occli is an open-source command line interface for the [Open Corporates](https://opencorporates.com) Database that searches and gets data on corporations under the copyleft Open Database License.
+Occli is an open-source command line interface for [Open Corporates](https://opencorporates.com), that searches and gets data on companies under the copyleft Open Database License.
 
-# Installation & Usage
-**Install From PyPI**:
-```
-$ pip install occli
-```
-
-```
-$ occli -q [company-name]
-```
-
-**Upgrade to latest version**:
-```
-$ pip install --upgrade occli
-```
-
-
-**Clone From Github**:
+# Installation
+## Clone from Github
 ```
 $ git clone https://github.com/rly0nheart/occli.git
 ```
@@ -35,24 +20,29 @@ $ cd occli
 ```
 
 ```
-$ pip install -r requirements.txt
+$ python setup.py sdist bdist_wheel
 ```
 
 ```
-$ python occli -q [company-name]
+$ pip install dist/occli-[version.tag]-py3-none.whl
+```
+
+## Install from PyPI
+```
+$ pip install occli
 ```
 
 # Optional Arguments
-| Flag         | MetaVar | Usage|
+| Option         | Argument | Usage|
 | ------------- |:----------------------:|:---------:|
-| <code>-q/--query</code>  |  company-name  | company-name  |
-| <code>-o/--output</code>      |   *path/to/file* |  write output to a specified file  |
-| <code>-d/--debug</code>  |    |  show network debug information |
-| <code>--version</code>  |    |  view program's version number and exit' |
-| <code>-u/--update</code>  |    |  check for updates' |
+| ``-o/--output``      |   path/to/file |  write output to a specified file  |
+| ``-c/--count``  |    |  number of results to return (1-30) (default: 30) |
+| ``-v/--verbose``  |    |  enable verbosity |
+
+## Upgrade to latest version
+```
+$ pip install --upgrade occli
+```
 
 # LICENSE
 ![license](https://user-images.githubusercontent.com/74001397/137917929-2f2cdb0c-4d1d-4e4b-9f0d-e01589e027b5.png)
-
-# About developer
-* [About.me](https://about.me/rly0nheart)
