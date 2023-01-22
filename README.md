@@ -1,3 +1,5 @@
+# Archived: Open Corporates API is no longer public
+
 ![logo](https://user-images.githubusercontent.com/74001397/176042400-fe48a5ca-d6fd-4aa6-b6ea-0b9fabee9262.png)
 
 ![Python Version](https://img.shields.io/badge/python-3.x-blue?style=flat&logo=python)
